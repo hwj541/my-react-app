@@ -1,5 +1,9 @@
+/* 全局样式 */
 .App {
   text-align: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .App-logo {
@@ -35,4 +39,122 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.main-content {
+  flex: 1;
+}
+
+/* 加载动画 */
+.loader-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #ecf0f1;
+}
+
+.loader {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-top-color: #3498db;
+  margin-bottom: 20px;
+}
+
+/* 滚动条样式 */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #3498db;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #2980b9;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .loader {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+/* 动画效果 */
+.fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.slide-in {
+  animation: slideIn 0.5s ease-in-out;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* 图片相关样式 */
+.relative.overflow-hidden.group.h-60 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* 确保卡片正确显示 */
+.grid.grid-cols-1.md\:grid-cols-2.lg\:grid-cols-3.gap-8 > div,
+.grid.grid-cols-1.md\:grid-cols-2.lg\:grid-cols-3.gap-8 > motion.div {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: white;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+.grid.grid-cols-1.md\:grid-cols-2.lg\:grid-cols-3.gap-8 > div:hover,
+.grid.grid-cols-1.md\:grid-cols-2.lg\:grid-cols-3.gap-8 > motion.div:hover {
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* 确保图片容器固定高度 */
+.relative.overflow-hidden.group.h-60 {
+  height: 240px; /* 固定高度 */
+  overflow: hidden;
+}
+
+/* 确保内容区域样式 */
+.p-6 {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
